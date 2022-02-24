@@ -74,6 +74,16 @@ console.log(makeTuples([1, 2, 3], [4, 5, 6, 7])); // will output [[1,4], [2,5], 
 // example inputs ['a', 'b', 'c', 'd'], { a: { b: { c: { d: '23' } } } }
 // example output '23'
 
+const pathFinder = (path, obj) => {
+  let current = obj;
+  for (let i = 0; i < path.length; i++) {
+    if (!current[path[i]]) return undefined;
+    current = current[path[i]];
+  }
+  return current;
+};
+console.log(pathFinder(["a", "b", "c", "d"], { a: { b: { c: { d: "23" } } } })); // will output '23'
+
 // 8. Please write compare function which compares 2 objects for equality.
 // example input { a: 'b', c: 'd' }, { c: 'd', a: 'b' }  /// output true
 // example input { a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' }  /// output false
